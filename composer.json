@@ -1,0 +1,36 @@
+{
+    "name": "royopa/MatLabPHP",
+    "description": "A string manipulation library with multibyte support",
+    "keywords": [
+        "multibyte", "string", "manipulation", "utility", "methods", "utf-8",
+        "helpers", "utils", "utf"
+    ],
+    "homepage": "https://github.com/royopa/MatLabPHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patricio Tarantino",
+            "email": "patriciotarantino@gmail.com",
+            "homepage": "https://github.com/pmtarantino"
+        },
+        {
+            "name": "Rodrigo Prado de Jesus",
+            "email": "royopa@gmail.com",
+            "homepage": "http://royopa.url.ph"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "support": {
+        "issues": "https://github.com/royopa/MatLabPHP/issues",
+        "source": "https://github.com/royopa/MatLabPHP"
+    },
+    "autoload": {
+        "psr-4": { "MatLabPHP\\": "src/" },
+        "classmap": [ "tests" ]
+    }
+}
