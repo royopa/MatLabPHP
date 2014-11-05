@@ -10,7 +10,7 @@ in your composer.json file:
 ```json
 {
     "require": {
-        "royopa/MatLabPHP": "dev-master"
+        "royopa/mat-lab-php": "dev-master"
     }
 }
 ```

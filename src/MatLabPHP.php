@@ -179,4 +179,29 @@ class MatLabPHP
         }
         return $matrix;
     }
+
+    /*
+    price2ret
+    @desc: Convert prices to returns -- http://www.mathworks.com/help/econ/price2ret.html
+    @param: vector with series price
+    @return: vector with returns
+    */
+    public function price2ret($seriesPrice)
+    {
+        $arr = new \ArrayIterator();
+
+        foreach ($seriesPrice as $key => $value) {
+            if ($key == 0) {
+                $arr->offsetSet($value, null);
+                continue;
+            }
+
+            $priceD0 = $seriesPrice[$key - 1];
+            $return  = log($value/$priceD0);
+
+            $arr->offsetSet($value, $return);
+        }
+
+        return $arr->getArrayCopy();
+    }
 }

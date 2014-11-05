@@ -225,4 +225,22 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($result, $expected);
     }
+
+    public function testPrice2Ret()
+    {
+        $matLab = new MatLabPHP();
+        $this->assertMatLabPHP($matLab);
+
+        $seriesPriceOne = array(10, 12, 13, 9, 11, 9);
+        $result         = $matLab->price2ret($seriesPriceOne);
+
+        $expected = array(
+            10 => null,
+            12 => 0.18232155679395,
+            13 => 0.080042707673536,
+            9 =>  -0.20067069546215,
+            11 => 0.20067069546215
+        );
+        $this->assertEquals($result, $expected);
+    }
 }
