@@ -1,8 +1,8 @@
+
 language: php
 
 env:
     - RUN=phpunit
-    - RUN=vendor/bin/phpunit
 
 script: ${RUN}
 
