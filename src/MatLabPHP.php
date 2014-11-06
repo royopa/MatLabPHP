@@ -24,12 +24,12 @@ class MatLabPHP
         return $errorMsg[$msg];
     }
 
-    /*
-    String to Vector:
-    @desc: Transform a vector in the format of [1 2 3] to an array(1,2,3);
-    @param: Number, Vector or Matrix. Ex: 1 or  [1 2 3] or [1 2 ; 3 4]
-    @return: Array of Number, Vector or Matrix to operate in the class.
-    */
+    /**
+     * String to Vector:
+     * @desc: Transform a vector in the format of [1 2 3] to an array(1,2,3);
+     * @param: Number, Vector or Matrix. Ex: 1 or  [1 2 3] or [1 2 ; 3 4]
+     * @return: Array of Number, Vector or Matrix to operate in the class.
+     */
     public function stringToVector($vector)
     {
         if (is_array($vector)) {
@@ -79,12 +79,12 @@ class MatLabPHP
         }
     }
 
-    /*
-    Eye:
-    @desc: Create the identity matrix;
-    @param: cols and rows.
-    @return: Eye matrix
-    */
+    /**
+     * Eye:
+     * @desc: Create the identity matrix;
+     * @param: cols and rows.
+     * @return: Eye matrix
+     */
     public function eye($cols, $rows = 'eq')
     {
         $rows = ($rows == 'eq')? trim($cols) : trim($rows);
@@ -106,12 +106,12 @@ class MatLabPHP
 
     }
 
-    /*
-    Zeros:
-    @desc: Create the a matrix of zeros;
-    @param: cols and rows.
-    @return: Zero matrix
-    */
+    /**
+     * Zeros:
+     * @desc: Create the a matrix of zeros;
+     * @param: cols and rows.
+     * @return: Zero matrix
+     */
     public function zeros($cols, $rows = 'eq')
     {
         $rows = ($rows == 'eq')? trim($cols) : trim($rows);
@@ -133,12 +133,12 @@ class MatLabPHP
 
     }
 
-    /*
-    Length
-    @desc: Gives back the max between cols and rows of a matrix
-    @param: vector or matrix
-    @return: int
-    */
+    /**
+     * Length
+     * @desc: Gives back the max between cols and rows of a matrix
+     * @param: vector or matrix
+     * @return: int
+     */
     public function length($vector, $ret = 0)
     {
         $vector = $this->stringToVector($vector);
@@ -150,12 +150,12 @@ class MatLabPHP
         }
     }
 
-    /*
-    Sum
-    @desc: Sumes two matrix or vectors or numbers
-    @param: two vector or matrix or numbers
-    @return: result
-    */
+    /**
+     * Sum
+     * @desc: Sumes two matrix or vectors or numbers
+     * @param: two vector or matrix or numbers
+     * @return: result
+     */
     public function sum($sumA, $sumB)
     {
         $sumA    = $this->stringToVector($sumA);
@@ -180,12 +180,12 @@ class MatLabPHP
         return $matrix;
     }
 
-    /*
-    price2ret
-    @desc: Convert prices to returns -- http://www.mathworks.com/help/econ/price2ret.html
-    @param: vector with series price
-    @return: vector with returns
-    */
+    /**
+     * price2ret
+     * @desc: Convert prices to returns -- http://www.mathworks.com/help/econ/price2ret.html
+     * @param: vector with series price
+     * @return: vector with returns
+     */
     public function price2ret($seriesPrice)
     {
         $arr = new \ArrayIterator();
@@ -203,5 +203,62 @@ class MatLabPHP
         }
 
         return $arr->getArrayCopy();
+    }
+
+    /**
+     * @desc: Maximum value of timeseries dat
+     * @ref: http://www.mathworks.com/help/matlab/ref/timeseries.max.html
+     * @param: float[] A array or matrix
+     * @return: float
+     */
+    public function max($vector)
+    {
+        return true;
+    }
+
+    /**
+     * @desc: Minimum value of timeseries data
+     * @ref: http://www.mathworks.com/help/matlab/ref/timeseries.min.html
+     * @param: float[] A array or matrix
+     * @return: float
+     */
+    public function min($vector)
+    {
+        return true;
+    }
+
+    /**
+     * @desc: Convert prices to returns
+     * @ref: https://nf.nci.org.au/facilities/software/Matlab/techdoc/ref/mean.html
+     * @param: float[] A array or matrix
+     * @return: float
+     */
+    public function mean($array)
+    {
+        $average = array_sum($array) / count($array);
+
+        return $average;
+    }
+
+    /**
+     * @desc: Standard deviation of timeseries data
+     * @ref: http://www.mathworks.com/help/matlab/ref/timeseries.std.html
+     * @param: float[] A array or matrix
+     * @return: float
+     */
+    public function std($vector)
+    {
+        return true;
+    }
+
+    /**
+     * @desc: Variance of timeseries data
+     * @ref: http://www.mathworks.com/help/matlab/ref/timeseries.var.html
+     * @param: float[] A array or matrix
+     * @return: float
+     */
+    public function variance($vector)
+    {
+        return true;
     }
 }
