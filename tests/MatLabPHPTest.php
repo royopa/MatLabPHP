@@ -4,7 +4,7 @@ require __DIR__ . '/../src/MatLabPHP.php';
 
 use MatLabPHP\MatLabPHP;
 
-class MatLabPHPTest extends PHPUnit_Framework_TestCase
+class MatLabPHPTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that a variable is of a Stringy instance.
@@ -18,8 +18,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testStringToVector()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $result   = $matLab->stringToVector("[3 1 2; 5 4 7; 6 9 7]");
         $expected = array(
@@ -45,8 +44,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testEye()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $result   = $matLab->eye(4);
         $expected = array(
@@ -95,8 +93,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testZeros()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $result   = $matLab->zeros(2, 1);
         $expected = array(
@@ -140,8 +137,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testLength()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $vector = array(
                 '1' => '0',
@@ -185,8 +181,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testSum()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $expected = array(
             0 => array(
@@ -228,8 +223,7 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
 
     public function testPrice2Ret()
     {
-        $matLab = new MatLabPHP();
-        $this->assertMatLabPHP($matLab);
+        $matLab = $this->getMatLabObject();
 
         $seriesPriceOne = array(10, 12, 13, 9, 11, 9);
         $result         = $matLab->price2ret($seriesPriceOne);
@@ -242,5 +236,94 @@ class MatLabPHPTest extends PHPUnit_Framework_TestCase
             11 => 0.20067069546215
         );
         $this->assertEquals($result, $expected);
+    }
+
+    public function testMean()
+    {
+        $matLabPHP = $this->getMatLabObject();
+
+        $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
+        $mediaRetX = $matLabPHP->mean($retFundoX);
+        $this->assertEquals($mediaRetX, 1.3000000000);
+
+        $mediaRetX = $matLabPHP->avg($retFundoX);
+        $this->assertEquals($mediaRetX, 1.3000000000);
+
+        $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
+        $mediaRetY = $matLabPHP->mean($retFundoY);
+        $this->assertEquals($mediaRetY, -0.2000000000);
+
+        $mediaRetY = $matLabPHP->avg($retFundoY);
+        $this->assertEquals($mediaRetY, -0.2000000000);
+    }
+
+    public function testStd()
+    {
+        $matLabPHP = $this->getMatLabObject();
+
+        $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
+
+        $desvPadX  = $matLabPHP->std($retFundoX, true);
+        $this->assertEquals($desvPadX, 2.0765355763);
+
+        $desvPadX  = $matLabPHP->stdev($retFundoX, true);
+        $this->assertEquals($desvPadX, 2.0765355763);
+
+        $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
+
+        $desvPadY  = $matLabPHP->std($retFundoY, true);
+        $this->assertEquals($desvPadY, 1.1983321743);
+
+        $desvPadY  = $matLabPHP->stdev($retFundoY, true);
+        $this->assertEquals($desvPadY, 1.1983321743);
+    }
+
+    public function testVariance()
+    {
+        $matLabPHP = $this->getMatLabObject();
+
+        $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
+        $result    = $matLabPHP->variance($retFundoX, true);
+        $this->assertEquals($result, 4.3120000000);
+
+        $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
+        $result    = $matLabPHP->variance($retFundoY, true);
+        $this->assertEquals($result, 1.4360000000);
+    }
+
+    public function testCovariance()
+    {
+        $matLabPHP = $this->getMatLabObject();
+
+        $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
+        $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
+
+        $result    = $matLabPHP->covariance($retFundoX, $retFundoY);
+        $this->assertEquals($result, -1.8433333333);
+
+        $result    = $matLabPHP->covar($retFundoX, $retFundoY);
+        $this->assertEquals($result, -1.8433333333);
+    }
+
+    public function testCorrelation()
+    {
+        $matLabPHP = $this->getMatLabObject();
+
+        $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
+        $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
+
+        $result    = $matLabPHP->correlation($retFundoX, $retFundoY);
+        $this->assertEquals($result, -0.8889319719);
+
+        $result = $matLabPHP->correl($retFundoX, $retFundoY);
+        $this->assertEquals($result, -0.8889319719);
+    }
+
+    public function getMatLabObject()
+    {
+        $matLab = new MatLabPHP();
+        $this->assertMatLabPHP($matLab);
+
+        return $matLab;
     }
 }
