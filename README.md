@@ -1,4 +1,7 @@
-![MatLabPHP]
+MatLabPHP
+=========
+
+[![Build Status](https://travis-ci.org/royopa/mat-lab-php.svg?branch=master)](https://travis-ci.org/royopa/mat-lab-php)
 
 Some Math operations on PHP with MatLab syntaxis.
 
