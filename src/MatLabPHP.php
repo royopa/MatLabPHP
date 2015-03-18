@@ -397,7 +397,7 @@ class MatLabPHP
                 bcsub($this->mathCount($values), '1')
             );
         }
-        return covariance($values, $values);
+        return $this->covariance($values, $values);
     }
 
     /**
@@ -438,18 +438,16 @@ class MatLabPHP
     /**
      * Compute correlation.
      *
-     * @param array $x_values
-     * @param array $y_values
+     * @param array   $x_values
+     * @param array   $y_values
+     * @param boolean $is
      * @return string Correlation
      */
-    public function correlation(array $x_values, array $y_values)
+    public function correlation(array $x_values, array $y_values, $isSample = false)
     {
+        $stddevxy = bcmul($this->stddev($x_values, $isSample), $this->stddev($y_values, $isSample));
 
-        $sdxy = bcmul($this->stddev($x_values, true), $this->stddev($y_values, true));
-
-        return bcdiv($this->covariance($x_values, $y_values), $sdxy);
-
-        #return covariance($x_values, $y_values) / (stddev($x_values, true)*stddev($y_values, true));
+        return round(bcdiv($this->covariance($x_values, $y_values), $stddevxy), 8);
     }
 
     /**
@@ -596,8 +594,8 @@ class MatLabPHP
     /**
      * Correlation
      */
-    public function correl(array $x_values, array $y_values)
+    public function correl(array $x_values, array $y_values, $isSample = false)
     {
-         return $this->correlation($x_values, $y_values);
+         return $this->correlation($x_values, $y_values, $isSample);
     }
 }

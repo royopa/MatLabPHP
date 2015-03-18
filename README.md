@@ -122,7 +122,7 @@ $matLabPHP->covariance(array $x_values, array $y_values);
 
 #### correlation()
 
-$matLabPHP->correlation(array $x_values, array $y_values);
+$matLabPHP->correlation(array $x_values, array $y_values, $isSample = false);
 
 ## Tests
 

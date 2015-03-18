@@ -312,12 +312,19 @@ class MatLabPHPTest extends \PHPUnit_Framework_TestCase
         $retFundoX = array(2, 1.5, -2.4, 1.5, 4, 1.2);
         $retFundoY = array(-1.2, 0.2, 1.3, 0, -2, 0.5);
 
-        $result    = $matLabPHP->correlation($retFundoX, $retFundoY);
-        //-0.88893197188859
-        //$this->assertEquals($result, -0.7407766432);
+        $isSample  = false;
+        $result    = $matLabPHP->correlation($retFundoX, $retFundoY, $isSample);
+        $this->assertEquals($result, -0.88893197);
 
-        $result = $matLabPHP->correl($retFundoX, $retFundoY);
-        //$this->assertEquals($result, -0.7407766432);
+        $result = $matLabPHP->correl($retFundoX, $retFundoY, $isSample);
+        $this->assertEquals($result, -0.88893197);
+
+        $isSample  = true;
+        $result    = $matLabPHP->correlation($retFundoX, $retFundoY, $isSample);
+        $this->assertEquals($result, -0.74077664);
+
+        $result = $matLabPHP->correl($retFundoX, $retFundoY, $isSample);
+        $this->assertEquals($result, -0.74077664);
     }
 
     public function getMatLabObject()
