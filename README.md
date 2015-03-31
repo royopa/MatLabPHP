@@ -93,37 +93,37 @@ $matLabPHP->length($vector, $ret = 0);
 @return: int
 
 #### sum()
-
+```php
 $matLabPHP->sum($sumA, $sumB);
-
+```
 @desc: Sumes two matrix or vectors or numbers
 @param: two vector or matrix or numbers
 @return: result
 
 #### mean()
-
+```php
 $matLabPHP->mean($array);
-
+```
 @desc Calculate mean (simple arithmetic average).
 @param array $values
 @return string Mean
 
 #### stddev()
-
+```php
 $matLabPHP->stddev(array $a, $isSample = false);
-
+```
 #### variance()
-
+```php
 $matLabPHP->variance($a, $isSample);
-
+```
 #### covariance()
-
+```php
 $matLabPHP->covariance(array $x_values, array $y_values);
-
+```
 #### correlation()
-
+```php
 $matLabPHP->correlation(array $x_values, array $y_values, $isSample = false);
-
+```
 ## Tests
 
 From the project directory, tests can be ran using `phpunit`
