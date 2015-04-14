@@ -41,7 +41,9 @@ use MatLabPHP\MatLabPHP as M;
 
 #### stringToVector()
 
+```php
 $matLabPHP->stringToVector(string $str);
+```
 
 @desc: Transform a vector in the format of [1 2 3] to an array(1,2,3);
 @param: Number, Vector or Matrix. Ex: 1 or  [1 2 3] or [1 2 ; 3 4]
@@ -70,23 +72,27 @@ $matLabPHP->stringToVector("[3 1 2; 5 4 7; 6 9 7]");
 ```
 #### eye()
 
+```php
 $matLabPHP->eye($cols, $rows = 'eq');
+```
 
 @desc: Create the identity matrix;
 @param: cols and rows.
 @return: Eye matrix
 
 #### zeros()
-
+```php
 $matLabPHP->zeros($cols, $rows = 'eq');
+```
 
 @desc: Create the a matrix of zeros;
 @param: cols and rows.
 @return: Zero matrix
 
 #### length()
-
+```php
 $matLabPHP->length($vector, $ret = 0);
+```
 
 @desc: Gives back the max between cols and rows of a matrix
 @param: vector or matrix
