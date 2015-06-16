@@ -18,6 +18,10 @@ in your composer.json file:
 }
 ```
 
+or
+
+    composer require royopa/mat-lab-php
+
 Then, after running `composer update` or `php composer.phar update`, you can
 load the class using Composer's autoloading:
 
@@ -40,14 +44,15 @@ use MatLabPHP\MatLabPHP as M;
 ## Methods
 
 #### stringToVector()
-
 ```php
 $matLabPHP->stringToVector(string $str);
 ```
-
-@desc: Transform a vector in the format of [1 2 3] to an array(1,2,3);
-@param: Number, Vector or Matrix. Ex: 1 or  [1 2 3] or [1 2 ; 3 4]
-@return: Array of Number, Vector or Matrix to operate in the class.
+- description
+    - Transform a vector in the format of [1 2 3] to an array(1,2,3);
+- parameters
+    - Number, Vector or Matrix. Ex: 1 or  [1 2 3] or [1 2 ; 3 4]
+- return
+    - Array of Number, Vector or Matrix to operate in the class.
 
 ```php
 $matLabPHP = new MatLabPHP();
@@ -71,65 +76,104 @@ $matLabPHP->stringToVector("[3 1 2; 5 4 7; 6 9 7]");
     );
 ```
 #### eye()
-
 ```php
 $matLabPHP->eye($cols, $rows = 'eq');
 ```
-
-@desc: Create the identity matrix;
-@param: cols and rows.
-@return: Eye matrix
+- description
+    - Create the identity matrix;
+- parameters
+    - cols and rows.
+- return
+    - Eye matrix
 
 #### zeros()
 ```php
 $matLabPHP->zeros($cols, $rows = 'eq');
 ```
-
-@desc: Create the a matrix of zeros;
-@param: cols and rows.
-@return: Zero matrix
+- description
+    - Create the a matrix of zeros;
+- parameters
+    - cols and rows.
+- return
+    - Zero matrix
 
 #### length()
 ```php
 $matLabPHP->length($vector, $ret = 0);
 ```
-
-@desc: Gives back the max between cols and rows of a matrix
-@param: vector or matrix
-@return: int
+- description
+    - Gives back the max between cols and rows of a matrix
+- parameters
+    - vector or matrix
+- return
+    - int
 
 #### sum()
 ```php
 $matLabPHP->sum($sumA, $sumB);
 ```
-@desc: Sumes two matrix or vectors or numbers
-@param: two vector or matrix or numbers
-@return: result
+- description
+    - Sumes two matrix or vectors or numbers
+- parameters
+    - two vector or matrix or numbers
+- return
+    - result
 
 #### mean()
 ```php
 $matLabPHP->mean($array);
 ```
-@desc Calculate mean (simple arithmetic average).
-@param array $values
-@return string Mean
+- description
+    - Calculate mean (simple arithmetic average).
+- parameters
+    - array $values
+- return
+    - string Mean
 
 #### stddev()
 ```php
 $matLabPHP->stddev(array $a, $isSample = false);
 ```
+- description
+    - 
+- parameters
+    - 
+- return
+    - 
+
 #### variance()
 ```php
 $matLabPHP->variance($a, $isSample);
 ```
+- description
+    - 
+- parameters
+    - 
+- return
+    - 
+
 #### covariance()
 ```php
 $matLabPHP->covariance(array $x_values, array $y_values);
 ```
+- description
+    - 
+- parameters
+    - 
+- return
+    - 
+
 #### correlation()
 ```php
 $matLabPHP->correlation(array $x_values, array $y_values, $isSample = false);
 ```
+- description
+    - 
+- parameters
+    - 
+- return
+    - 
+
 ## Tests
 
 From the project directory, tests can be ran using `phpunit`
