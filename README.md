@@ -2,6 +2,9 @@ MatLabPHP
 =========
 
 [![Build Status](https://travis-ci.org/royopa/mat-lab-php.svg?branch=master)](https://travis-ci.org/royopa/mat-lab-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/royopa/mat-lab-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/royopa/mat-lab-php/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/royopa/mat-lab-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/royopa/mat-lab-php/?branch=master)
+
 
 Some Math operations on PHP with MatLab syntaxis.
 
