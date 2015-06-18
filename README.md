@@ -176,6 +176,8 @@ $matLabPHP->correlation(array $x_values, array $y_values, $isSample = false);
 - return
     - 
 
-## Tests
+##Tests
 
-From the project directory, tests can be ran using `phpunit`
+From the project directory, tests can be ran using:
+    
+    ./vendor/bin/phpunit
