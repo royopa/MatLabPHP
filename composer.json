@@ -1,8 +1,8 @@
 {
     "name": "royopa/mat-lab-php",
-    "description": "A string manipulation library with multibyte support",
+    "description": "Some Math operations on PHP with MatLab syntaxis.",
     "keywords": [
-        "multibyte", "string", "manipulation", "utility", "methods", "utf-8",
+        "multibyte", "math", "matlab",
         "helpers", "utils", "utf"
     ],
     "homepage": "https://github.com/royopa/mat-lab-php",
